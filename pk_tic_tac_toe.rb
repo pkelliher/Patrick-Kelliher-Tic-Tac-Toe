@@ -30,7 +30,6 @@ class TicTacToeGame
   puts 'XO  Welcome to Patrick\'s Tic Tac Toe! XO'
   puts 'XOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXO'
   puts ''
-
 end
 
 class Player
@@ -57,13 +56,13 @@ end
 def create_player(player_num, game_piece)
   print "Hello player #{player_num} please enter your first name: "
   name = gets.chomp.capitalize
-  puts "Welcome, #{name}; your game piece will be #{game_piece}."
+  puts "Welcome, #{name}; your game piece will be #{game_piece}"
   puts ''
   Player.new(name, game_piece)
 end
 
 def make_move(board, player)
-  puts 'please select a location on the board between (1 and 9).'
+  print "#{player.name}, it's your turn; please select a location on the board between (1 and 9): "
   position = gets.chomp.to_i - 1
   board.board[position] = player.game_piece
   board.remove_space
@@ -85,14 +84,12 @@ def check_win(board, player)
 end
 
 def play_turn(player, board)
-  print "#{player.name}, it's your turn; "
   make_move(board, player)
   display_board(board)
   check_win(board, player) == true
 end
 
 def play_game(board)
-  
   player1 = create_player(1, "X")
   player2 = create_player(2, "O")
 
