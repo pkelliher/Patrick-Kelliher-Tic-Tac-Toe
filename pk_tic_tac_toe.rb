@@ -55,7 +55,7 @@ end
 
 def create_player(player_num, game_piece)
   print "Hello player #{player_num} please enter your first name: "
-  name = gets.chomp.capitalize
+  name = gets.strip.capitalize
   puts "Welcome, #{name}; your game piece will be #{game_piece}"
   puts ''
   Player.new(name, game_piece)
@@ -63,7 +63,7 @@ end
 
 def make_move(board, player)
   print "#{player.name}, it's your turn; please select a location on the board between (1 and 9): "
-  position = gets.chomp.to_i - 1
+  position = gets.strip.to_i - 1
   board.board[position] = player.game_piece
   board.remove_space
 end
