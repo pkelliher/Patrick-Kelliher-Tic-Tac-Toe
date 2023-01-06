@@ -78,6 +78,7 @@ def check_win(board, player)
       counter += 1 if board.board[position] == player.game_piece
     end
     if counter >= 3
+      display_board(board)
       puts "Congratulations, #{player.name}, you won!"
       return true
     else
@@ -87,8 +88,9 @@ def check_win(board, player)
 end
 
 def play_turn(player, board)
-  make_move(board, player)
   display_board(board)
+  make_move(board, player)
+  # display_board(board)
   check_win(board, player) == true
 end
 
