@@ -24,7 +24,6 @@ class TicTacToeGame
   def remaining_spaces
     @remaining_spaces
   end
-
 end
 
 class Player
