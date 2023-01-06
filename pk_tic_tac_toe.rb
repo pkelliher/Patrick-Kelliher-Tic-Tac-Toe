@@ -90,7 +90,6 @@ end
 def play_turn(player, board)
   display_board(board)
   make_move(board, player)
-  # display_board(board)
   check_win(board, player) == true
 end
 
