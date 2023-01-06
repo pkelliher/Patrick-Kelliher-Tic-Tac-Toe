@@ -63,7 +63,7 @@ end
 
 def make_move(board, player)
   print "#{player.name}, it's your turn; please select a location on the board between (1 and 9): "
-  position = gets.strip.to_i - 1
+  position = gets.chomp.to_i - 1
   board.board[position] = player.game_piece
   board.remove_space
 end
