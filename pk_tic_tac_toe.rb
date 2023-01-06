@@ -25,11 +25,6 @@ class TicTacToeGame
     @remaining_spaces
   end
 
-  puts ''
-  puts 'XOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXO'
-  puts 'XO  Welcome to Patrick\'s Tic Tac Toe! XO'
-  puts 'XOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXO'
-  puts ''
 end
 
 class Player
@@ -42,6 +37,14 @@ class Player
 end
 
 board = TicTacToeGame.new
+
+def intro_message
+  puts ''
+  puts 'XOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXO'
+  puts 'XO  Welcome to Patrick\'s Tic Tac Toe! XO'
+  puts 'XOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXOXO'
+  puts ''
+end
 
 def display_board(board)
   puts ''
@@ -70,8 +73,8 @@ end
 
 def check_win(board, player)
   counter = 0
-  for win_state in TicTacToeGame::VICTORY
-    for position in win_state
+ TicTacToeGame::VICTORY.each do |win_state|
+    win_state.each do |position|
       counter += 1 if board.board[position] == player.game_piece
     end
     if counter >= 3
@@ -90,6 +93,7 @@ def play_turn(player, board)
 end
 
 def play_game(board)
+  intro_message
   player1 = create_player(1, "X")
   player2 = create_player(2, "O")
 
