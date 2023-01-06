@@ -73,7 +73,7 @@ end
 
 def check_win(board, player)
   counter = 0
- TicTacToeGame::VICTORY.each do |win_state|
+  TicTacToeGame::VICTORY.each do |win_state|
     win_state.each do |position|
       counter += 1 if board.board[position] == player.game_piece
     end
