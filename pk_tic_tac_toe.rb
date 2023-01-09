@@ -108,6 +108,7 @@ def play_game(board)
       break if play_turn(player2, board)
     end
     if board.remaining_spaces.zero?
+      puts ''
       puts "Cat's game, there is no winner."
       break
     end
